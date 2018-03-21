@@ -2,11 +2,11 @@ body {
     background-image: url("https://images.unsplash.com/photo-1502224562085-639556652f33?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b665f96b3fa935a9a98fcdef67ca7b56&auto=format&fit=crop&w=1014&q=80");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
 }
 #app > .container{
     position:absolute;
-    width:200px;
-    height:150px;
     top:80%;
     left:50%;
     transform: translate(-50%,-80%);
@@ -14,7 +14,6 @@ body {
     display:flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     color: #fff;
     text-align: center;
 }
@@ -22,10 +21,12 @@ body {
     font-size:24px;
 }
 button {
-    margin-right: 5px;
+    margin: 10px;
     font-size: 20px;
     background-color:#E4E1E2;
     color:#EC7311;
     border: 3px solid rgba(000, 000, 000, 0.8);
     border-radius: 10%;
+    height: 40px;
+    width: 120px;
 }
