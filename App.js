@@ -1,9 +1,9 @@
 class App extends React.Component {
-    constructor() {
-    	super();
-    	this.running = false;
+	constructor() {
+		super();
+		this.running = false;
 		this.reset();
-		
+
 		this.state = {
 			times: {
 				minutes: 0,
@@ -11,31 +11,32 @@ class App extends React.Component {
 				miliseconds: 0
 			}
 		}
-	
-    }
 
-    reset() {
-        this.setState({
-            times: {
-                minutes: 0,
-                seconds: 0,
-                miliseconds: 0
-            }
-        });
-    }  
+	}
+
+	reset() {
+		this.setState({
+			running: false,
+			times: {
+				minutes: 0,
+				seconds: 0,
+				miliseconds: 0
+			}
+		});
+	}
 
 	format() {
 		return `${pad0(this.state.times.minutes)}:${pad0(this.state.times.seconds)}:${pad0(Math.floor(this.state.times.miliseconds))}`;
 	}
 	start() {
 		if (!this.state.running) {
-		    this.running = true;
-		    this.watch = setInterval(() => this.step(), 10);
+			this.running = true;
+			this.watch = setInterval(() => this.step(), 10);
 		}
 	}
 	step() {
-	    if (!this.running) return;
-	    this.calculate();	    
+		if (!this.running) return;
+		this.calculate();
 	}
 
 	calculate() {
@@ -51,19 +52,19 @@ class App extends React.Component {
 			}
 
 			return prevState;
-		});	    
+		});
 	}
 
 	stop() {
-	    this.setState ({
-            running: false
-        });
-	    clearInterval(this.watch);
+		this.setState({
+			running: false
+		});
+		clearInterval(this.watch);
 	}
 
-    render() {
-	    return (
-	    	<div className="container">
+	render() {
+		return (
+			<div className="container">
 				<div>
 					<button onClick={this.start.bind(this)}>start</button>
 					<button onClick={this.stop.bind(this)}>stop</button>
@@ -83,6 +84,6 @@ function pad0(value) {
 }
 
 ReactDOM.render(
-    <App/>,	
+	<App />,
 	document.getElementById('app')
 );
